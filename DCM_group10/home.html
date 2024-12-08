@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pacemaker DCM · Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="./assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+
+  <main>
+    <nav class="navbar sticky-top bg-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./assets/mcmaster-small.png" alt="Logo" width="19" height="26" class="d-inline-block align-text-top">
+          Pacemaker DCM
+        </a>
+        <button class="btn btn-success invisible" type="button" aria-expanded="false"></button>
+        <button class="btn btn-secondary" id="btn-params" type="button">Parameters</button>
+        <p style="color:transparent;">_</p>
+        <button class="btn btn-secondary" id="btn-egram" type="button">EGRAM</button>
+        <p style="color:transparent;">_</p>
+        <button class="btn btn-secondary" id="btn-new-patient" type="button">New Patient</button>
+        <p style="color:transparent;">_</p>
+        <button class="btn btn-secondary" id="btn-about" type="button">About</button>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+        <form class="d-flex" role="user">
+          <button id="btn-connect" class="btn btn-outline-success" type="button" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-usb-symbol" viewBox="0 0 16 16">
+              <path d="m7.792.312-1.533 2.3A.25.25 0 0 0 6.467 3H7.5v7.319a2.5 2.5 0 0 0-.515-.298L5.909 9.56A1.5 1.5 0 0 1 5 8.18v-.266a1.5 1.5 0 1 0-1 0v.266a2.5 2.5 0 0 0 1.515 2.298l1.076.461a1.5 1.5 0 0 1 .888 1.129 2.001 2.001 0 1 0 1.021-.006v-.902a1.5 1.5 0 0 1 .756-1.303l1.484-.848A2.5 2.5 0 0 0 11.995 7h.755a.25.25 0 0 0 .25-.25v-2.5a.25.25 0 0 0-.25-.25h-2.5a.25.25 0 0 0-.25.25v2.5c0 .138.112.25.25.25h.741a1.5 1.5 0 0 1-.747 1.142L8.76 8.99a2.584 2.584 0 0 0-.26.17V3h1.033a.25.25 0 0 0 .208-.389L8.208.312a.25.25 0 0 0-.416 0Z" />
+            </svg>
+            Connect Device
+          </button>
+          <p style="color:transparent;">_</p>
+          <button class="btn btn-outline-secondary" id="btn-print" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+              <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+              <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z" />
+            </svg>
+            Print Report
+          </button>
+          <p style="color:transparent;">_</p>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a id="itm-user" class="dropdown-item disabled">User</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a id="itm-logout" class="dropdown-item">Logout</a></li>
+            </ul>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+    <div>
+      <div class="bg-light p-3 rounded">
+        <div class="col-lg-7 mx-auto">
+
+          <div class="col-md-9" id="container-alert">
+            <div class="alert hide" role="alert"><div><br></div></div>
+          </div>
+
+          <div id="container-view"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  <script src="./assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./controllers/home.js"></script>
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+    </symbol>
+    <symbol id="info-fill" viewBox="0 0 16 16">
+      <path
+        d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+    </symbol>
+    <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+      <path
+        d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+    </symbol>
+  </svg>
+
+  </body>
+</html>
